@@ -1,0 +1,110 @@
+.radio-interno{
+    width: 50%;
+}
+
+.radios{
+    display: flex;
+    justify-content: space-between;
+}
+.btnRadio{
+    color: white;
+    font-size: 1.5em;
+}
+
+
+
+.text-center {
+    text-align: center!important;
+}
+.cover-container {
+    max-width: 50em;
+}
+
+.mb-auto, .my-auto {
+    margin-bottom: auto!important;
+}
+
+
+.logo-img {
+    width: 280px;
+}
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+/* Styles */
+    .logo-img {
+        width: 180px;
+    }
+    .nav-labels{
+        font-size: 18px !important; 
+    }
+    .radio-interno{
+        width: 100%;
+    }
+    .btn-container{
+        display: flex; flex-direction: column !important; width: 100%;
+    }
+    
+}
+.btn-container{
+    display: flex; flex-direction: row; width: 100%;
+}
+.nav-labels{
+    color: #adc910; 
+    font-size: 22px; 
+    font-weight: bold;
+}
+
+.footer-text{
+    color: #adc910; 
+    font-size: 14px;
+    text-align: center;
+}
+
+.bg-color{
+    background-color: #333333 !important;
+    z-index: 1;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+.bg-img{
+      /* The image used */
+  background-image: url("../assets/bg-5.jpg");
+
+  /* Full height */
+  height: 100%;
+  z-index: 2;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.div-nav{
+    display: flex; 
+    flex-direction: row; 
+    justify-content: space-between;
+}
+
+.menu-name-label{
+    display: flex; 
+    justify-content: flex-end; 
+    align-items: center;
+}
+
+.cover-heading{
+    text-align: center;
+    color: white;
+    font-size: 2.5rem;
+    padding-bottom: 30px;
+}
+
+.lead{
+
+    text-align: center;
+    color: white;
+}

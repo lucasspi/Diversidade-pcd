@@ -1,0 +1,59 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="bg-img">
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+
+      <header class="masthead mb-auto">
+        <div class="inner div-nav">
+          <div class="pic-div">
+            <img class="logo-img" src="../assets/LOGO_1.png"/>
+          </div>
+          <div class="menu-name-label">
+            <div class="nav-labels">LOGIN</div>
+          </div>
+        </div>
+      </header>
+      <main role="main" class="inner cover">
+        <h1 class="cover-heading">ESCOLHA UMA DAS OPÇÕES ABAIXO</h1>
+        <!-- <div class="radios"> -->
+          <mat-radio-group aria-label="Select an option">
+            <div class="btn-container">
+              <div class="radio-interno">
+                <mat-radio-button class="btnRadio" data-toggle="modal" data-target="#modalExemplo" value="1">RECEBER UMA LIGAÇÃO<br/>DA NOSSA CENTRAL</mat-radio-button>
+              </div>
+              <div class="radio-interno">
+                  <mat-radio-button class="btnRadio" value="2">PREENCHER O QUESTIONÁRIO<br/>PCD</mat-radio-button>
+              </div>
+            </div>
+          </mat-radio-group>
+        <!-- </div> -->
+          
+      </main>
+      <footer class="mastfoot mt-auto">
+        <div class="inner">
+          <p class="footer-text">Todos os direitos reservados.</p>
+        </div>
+      </footer>
+    </div>
+  
+  </div>
+    <!-- Modal -->
+    <div class="modal fade" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Título do modal</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+              Você autoriza nosso sistema utilizar seus dados para fazer contato futuro ou utilizá-los para fins de pesquisa? 
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">NÃO</button>
+            <button type="button" class="btn btn-primary">SIM</button>
+          </div>
+        </div>
+      </div>
+    </div>
+<router-outlet></router-outlet>
