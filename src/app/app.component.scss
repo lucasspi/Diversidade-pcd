@@ -1,30 +1,75 @@
-.radio-interno{
-    width: 50%;
+
+.login:hover{
+    color: #adc90e;
+    
+}
+.login{
+    color: white;
+    transition: 0.2s;
+}
+.container-login{
+    background: rgba(255,255,255,0.6);
+    color: white;
+    padding: 10px 50px;
+    border-radius: 40px;
+    transition: 0.3s;
+}
+.container-login:hover{
+    color: #adc90e;
+    background: rgba(255,255,255,0.9);
+    padding: 10px 50px;
+    border-radius: 40px;
 }
 
-.radios{
-    display: flex;
-    justify-content: space-between;
-}
 .btnRadio{
     color: white;
     font-size: 1.5em;
 }
 
+.radios{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.interno-radio{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 
 
 .text-center {
     text-align: center!important;
 }
 .cover-container {
-    max-width: 50em;
+    max-width: 80em;
 }
 
 .mb-auto, .my-auto {
     margin-bottom: auto!important;
 }
-
-
+.mat-radio-button.mat-accent .mat-radio-inner-circle {
+    border-color: #adc90e !important;
+}
+.mat-radio-button.mat-accent .mat-radio-inner-circle, .mat-radio-button.mat-accent .mat-radio-ripple {
+    background-color: #e3ff2d !important;
+}
+.btn-primary {
+    color: #fff;
+    background-color: #adc910;
+    border-color: #adc910;
+}
+.modal-font {
+    font-size: 19px;
+    color: #565656;
+}
+.modal-footer2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    border: none;
+}
 .logo-img {
     width: 280px;
 }
@@ -37,20 +82,25 @@
     .nav-labels{
         font-size: 18px !important; 
     }
-    .radio-interno{
-        width: 100%;
+    .btnRadio{
+        font-size: 0.9em;
     }
-    .btn-container{
-        display: flex; flex-direction: column !important; width: 100%;
+    .modal-font {
+        font-size: 16px;
+    }
+
+    .menu-name-label{
+        padding-top: 15px;
+    }
+    .login{
+        color: white;
+        font-size: 15px;
     }
     
 }
-.btn-container{
-    display: flex; flex-direction: row; width: 100%;
-}
 .nav-labels{
     color: #adc910; 
-    font-size: 22px; 
+    font-size: 20px; 
     font-weight: bold;
 }
 
@@ -108,3 +158,48 @@
     text-align: center;
     color: white;
 }
+
+
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    padding: 20px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+
+
+.mat-form-field-appearance-legacy .mat-form-field-underline {
+    background-color: #333333 !important;
+}
+
+label#mat-form-field-label-1{
+    color: #333333 !important;
+}
+
+::ng-deep .mat-focused .mat-form-field-label .mat-form-field-appearance-legacy.mat-form-field-can-float .mat-input-server:focus+.mat-form-field-label-wrapper .mat-form-field-label, .mat-form-field-appearance-legacy.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+    /*change color of label*/
+    color: #333333 !important;
+}
+
+::ng-deep  #mat-form-field-label-1{
+    /*change color of label*/
+    color: #333333 !important;
+   }
+::ng-deep  #mat-form-field-label  .mat-form-field-appearance-legacy .mat-form-field-label .mat-form-field-appearance-legacy .mat-form-field-label{
+    /*change color of label*/
+    color: #333333 !important;
+   }
+
+   ::ng-deep .mat-form-field-appearance-legacy .mat-form-field-label {
+    color: #333333;
+}
+  
+   ::ng-deep.mat-form-field-underline {
+    /*change color of underline*/
+    background-color: #333333 !important;
+  } 
+  

@@ -1,0 +1,11 @@
+{
+  "hosting": {
+    "public": "./dist/Diversidade-pcd",
+    "site": "pcd-web",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
