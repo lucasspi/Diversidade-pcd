@@ -8,7 +8,7 @@
             <img class="logo-img" src="../assets/LOGO_1.png"/>
           </div>
           <div class="menu-name-label">
-            <div class="nav-labels  container-login"> <a class="login" href="https://app.pcdweb.com.br">LOGIN</a></div>
+            <div class="nav-labels  container-login"> <a class="login" href="https://app.diversidademais.com.br">LOGIN</a></div>
           </div>
         </div>
       </header>
@@ -50,7 +50,7 @@
           </div>
           <div *ngIf="favoriteSeason == 'PREENCHER O QUESTIONÁRIO PCD'"  class="modal-footer">
             <button type="button" style="padding: 10px 35px;" class="btn btn-secondary" data-dismiss="modal" data-toggle="modal" data-target="#modalExemplo2">NÃO</button>
-            <a type="button" style="padding: 10px 35px;" class="btn btn-primary" href="https://app.pcdweb.com.br">SIM</a>
+            <a type="button" style="padding: 10px 35px;" class="btn btn-primary" href="https://app.diversidademais.com.br">SIM</a>
           </div>
         </div>
       </div>
@@ -69,33 +69,46 @@
         </div>
       </div>
     </div>
+    <div class="modal fade" id="modalExemplo4" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content" style="height: 260px; padding: 20px;">
+          
+          <div class="modal-body modal-font" style="text-align: center;">
+            <span style="font-size: 30px; font-weight: bold;">{{userName}}</span><br/>Você receberá uma ligação em<br/>alguns minutos.
+          </div>
+          <div class="modal-footer2">
+            <button type="button" style="padding: 10px 35px;" class="btn btn-primary" data-dismiss="modal">FECHAR</button>
+          </div>
+        </div>
+      </div>
+    </div>
     <!-- Modal3 - Cadastro de Nome e Email -->
     <div class="modal fade" id="modalExemplo3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
+
         <div class="modal-content">
-          
+          <div class="modal-header">
+              <h5 class="modal-title" style="color: #adc910;" id="exampleModalLabel">Preencha abaixo com seu dados</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+          <form [formGroup]="emailForm" class="example-form" (ngSubmit)="callMe(emailForm)">
           <div class="modal-body modal-font" style="text-align: center;">
-              <p>Preencha abaixo com seu dados</p>
-            <form [formGroup]="emailForm" class="example-form">
-                <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Favorite food" formControlName="name"  #name="matInput" placeholder="Nome">
-                  </mat-form-field>
               <mat-form-field class="example-full-width">
-                <input matInput placeholder="Email" [formControl]="emailFormControl" formControlName="email" #email="matInput" style="color: #333333; "
-                       [errorStateMatcher]="matcher">
-                <!-- <mat-hint style="color: #333333;" >Errors appear instantly!</mat-hint> -->
-                <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
-                  Insira um e-mail válido
-                </mat-error>
-                <mat-error *ngIf="emailFormControl.hasError('required')">
-                  Email é <strong>requerido</strong>
-                </mat-error>
+                <input matInput placeholder="Favorite food" formControlName="name"  #name="matInput" placeholder="Nome">
               </mat-form-field>
-            </form>
-          </div>
-          <div class="modal-footer2">
-            <button type="button" style="padding: 10px 35px;" class="btn btn-primary" data-dismiss="modal" (click)="sendEmail()">ENVIAR</button>
-          </div>
+              <label style="font-size: 11px; text-align: left; color: red; width: 100%; padding: 0px 0px 21px 0px;" *ngIf="nameError">É necessário preencher o campo Nome</label>
+
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="Celular"  maxlength="15" mask="(AA) AAAAA-AAAA" formControlName="phone" #phone="matInput" style="color: #333333; ">
+              </mat-form-field>
+              <label style="font-size: 11px; text-align: left; color: red; width: 100%; padding: 0px 0px 21px 0px;" *ngIf="phoneError">É necessário preencher o campo Celular</label>
+            </div>
+            <div class="modal-footer2">
+              <button type="submit" style="padding: 10px 35px;" class="btn btn-primary">ENVIAR</button>
+            </div>
+          </form>
         </div>
       </div>
     </div>

@@ -1,9 +1,11 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormGroupDirective, NgForm } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-import {MatRadioModule} from '@angular/material/radio';
-import { CommonModule } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../environments/environment';
 import {ErrorStateMatcher} from '@angular/material/core';
+
+declare const $: any;
+declare const M: any;
 /** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -21,18 +23,24 @@ export class AppComponent {
   radioDecision1: any; // rspData = form
   groupForm: FormGroup;
   emailForm: FormGroup;
+  
   public noAuth: true;
+  public phoneError: Boolean;
+  public nameError: Boolean;
   public favoriteSeason: string;
+  public userName: string;
   public seasons: string[] = ['RECEBER UMA LIGAÇÃO DA NOSSA CENTRAL', 'PREENCHER O QUESTIONÁRIO PCD'];
-
+  
   emailFormControl = new FormControl('', [
     Validators.required,
     Validators.email,
   ]);
   matcher = new MyErrorStateMatcher();
-
-  constructor(cdr: ChangeDetectorRef) {
+  
+  constructor(cdr: ChangeDetectorRef, private http: HttpClient) {
     // super( http);
+    this.phoneError = false;
+    this.nameError = false;
     this.groupForm = this.createForm();
     this.emailForm = this.createEmailForm();
   }
@@ -44,11 +52,33 @@ export class AppComponent {
   createEmailForm() {
     return new FormGroup({
       name: new FormControl('',[Validators.required]),
-      email: new FormControl('', [Validators.required])
+      phone: new FormControl('', [Validators.required])
     });
   }
 
-  sendEmail(){
+  callMe(row){
+    let value = row.value
+    if (value.phone.length < 11) {
+      this.phoneError = true;
+    }else{
 
+      this.http.post(`${environment.api.url}/callme/new`, value)
+      .subscribe((result: any) => {
+        console.log(result)
+        this.phoneError = false;
+        this.nameError = false;
+        this.userName = value.name;
+        $('#modalExemplo3').modal('hide');
+        $('#modalExemplo4').modal('show');
+      }, (error) =>{
+        console.log(error)
+        if (value.name.length == 0) {
+          this.nameError = true;
+          this.phoneError = false;
+        }
+        // this.showNotification("bg-black", `Push editado com Erro!`, "bottom", "right", "animated fadeInRight", "animated fadeOutRight")
+      })
+    }
   }
+
 }
