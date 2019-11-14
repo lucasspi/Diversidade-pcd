@@ -7,8 +7,8 @@ export const environment = {
   production: false,
   useNewRsp: false,
   api: {
-    url: 'http://localhost:3000'
-    // url: 'https://api-v1.life4young.info'
+    // url: 'http://localhost:3000'
+    url: 'https://api-v1.diversidademais.com.br'
     // lambda: 'http://localhost:3000/'
   },
   session: {
