@@ -7,8 +7,13 @@
           <div class="pic-div">
             <img class="logo-img" src="../assets/LOGO_1.png"/>
           </div>
-          <div class="menu-name-label">
-            <div class="nav-labels  container-login"> <a class="login" href="https://app.diversidademais.com.br">LOGIN</a></div>
+          <div style="display: flex;">
+            <div class="menu-name-label">
+              <div class="nav-labels  container-login"> <a class="login" href="https://app.diversidademais.com.br">LOGIN</a></div>
+            </div>
+            <div class="menu-name-label" style="margin-left: 20px;">
+              <div class="nav-labels  container-login"> <a class="login" href="" >PERGUNTAS E RESPOSTAS</a></div>
+            </div>
           </div>
         </div>
       </header>
@@ -101,9 +106,13 @@
               <label style="font-size: 11px; text-align: left; color: red; width: 100%; padding: 0px 0px 21px 0px;" *ngIf="nameError">É necessário preencher o campo Nome</label>
 
               <mat-form-field class="example-full-width">
-                <input matInput placeholder="Celular"  maxlength="15" mask="(AA) AAAAA-AAAA" formControlName="phone" #phone="matInput" style="color: #333333; ">
+                <input matInput placeholder="Telefone"  maxlength="15" mask="(AA) AAAAA-AAAA" formControlName="phone" #phone="matInput" style="color: #333333; ">
               </mat-form-field>
-              <label style="font-size: 11px; text-align: left; color: red; width: 100%; padding: 0px 0px 21px 0px;" *ngIf="phoneError">É necessário preencher o campo Celular</label>
+              <label style="font-size: 11px; text-align: left; color: red; width: 100%; padding: 0px 0px 21px 0px;" *ngIf="phoneError">É necessário preencher o campo Telefone</label>
+              <mat-form-field class="example-full-width">
+                <input matInput placeholder="CPF"  maxlength="15" mask="AAA.AAA.AAA-AA" formControlName="cpf" #phone="matInput" style="color: #333333; ">
+              </mat-form-field>
+              <label style="font-size: 11px; text-align: left; color: red; width: 100%; padding: 0px 0px 21px 0px;" *ngIf="cpfError">É necessário preencher o campo CPF</label>
             </div>
             <div class="modal-footer2">
               <button type="submit" style="padding: 10px 35px;" class="btn btn-primary">ENVIAR</button>

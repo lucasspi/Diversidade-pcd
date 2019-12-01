@@ -25,6 +25,7 @@ export class AppComponent {
   emailForm: FormGroup;
   
   public noAuth: true;
+  public cpfError: Boolean;
   public phoneError: Boolean;
   public nameError: Boolean;
   public favoriteSeason: string;
@@ -41,6 +42,7 @@ export class AppComponent {
     // super( http);
     this.phoneError = false;
     this.nameError = false;
+    this.cpfError = false;
     this.groupForm = this.createForm();
     this.emailForm = this.createEmailForm();
   }
@@ -52,15 +54,21 @@ export class AppComponent {
   createEmailForm() {
     return new FormGroup({
       name: new FormControl('',[Validators.required]),
-      phone: new FormControl('', [Validators.required])
+      phone: new FormControl('', [Validators.required]),
+      cpf: new FormControl('', [Validators.required])
     });
   }
 
   callMe(row){
     let value = row.value
-    if (value.phone.length < 11) {
-      this.phoneError = true;
+    console.log("value", value)
+    if (value.phone.length < 11 || value.cpf.length < 11) {
+      
+      value.phone.length < 11 ? this.phoneError = true : this.phoneError = false;
+      value.cpf < 11 ? this.cpfError = true : this.cpfError = false;
+      
     }else{
+      
 
       this.http.post(`${environment.api.url}/callme/new`, value)
       .subscribe((result: any) => {
