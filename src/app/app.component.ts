@@ -19,7 +19,7 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'Diversidade-pcd';
+  title = 'Diversidade+';
   radioDecision1: any; // rspData = form
   groupForm: FormGroup;
   emailForm: FormGroup;
@@ -59,6 +59,13 @@ export class AppComponent {
     });
   }
 
+  fecharmodal(){
+    console.log("CHEGOUY")
+    $('#modalExemplo5').modal('hide')
+    $("#modalExemplo5").addClass("hide");
+    $("#modalExemplo5").removeClass("show");
+  }
+
   callMe(row){
     let value = row.value
     console.log("value", value)
@@ -86,6 +93,7 @@ export class AppComponent {
         }
         // this.showNotification("bg-black", `Push editado com Erro!`, "bottom", "right", "animated fadeInRight", "animated fadeOutRight")
       })
+      
     }
   }
 

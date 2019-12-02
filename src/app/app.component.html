@@ -12,7 +12,7 @@
               <div class="nav-labels  container-login"> <a class="login" href="https://app.diversidademais.com.br">LOGIN</a></div>
             </div>
             <div class="menu-name-label" style="margin-left: 20px;">
-              <div class="nav-labels  container-login"> <a class="login" href="" >PERGUNTAS E RESPOSTAS</a></div>
+              <div class="nav-labels  container-login"> <a class="login" href="" data-toggle="modal" data-target="#modalExemplo5" >PERGUNTAS E RESPOSTAS</a></div>
             </div>
           </div>
         </div>
@@ -118,6 +118,96 @@
               <button type="submit" style="padding: 10px 35px;" class="btn btn-primary">ENVIAR</button>
             </div>
           </form>
+        </div>
+      </div>
+    </div>
+    <!-- Modal4 - FAQ de Nome e Email -->
+    <div class="modal fade" id="modalExemplo5" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog-5 modal-dialog-centered modal5"  role="document">
+
+        <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title title-faq" id="exampleModalLabel">Perguntas e Respostas</h5>
+              <button type="button" (click)="fecharmodal()" data-dismiss="modal" class="close" >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="container-faq">
+              <h5 class="modal-title title-faq">1 - O que é o Projeto Diversidade+?</h5>
+              <p class="faq-text">Esse é um projeto desenvolvido por grandes empresas da Cidade, em parceria com a Prefeitura Municipal e outros órgãos públicos, bem como instituições ligadas a causa das Pessoas com Deficiência. O principal objetivo desse projeto, é identificar as Pessoas Com Deficiência na cidade, e encaminhá-las para as vagas de emprego oferecidas pelas empresas, ou para os programas de Aprendizagem que elas oferecem.</p>
+            </div>
+            <div class="container-faq">
+                <h5 class="modal-title title-faq">2 - Como faço para participar desse projeto?</h5>
+              <p class="faq-text">O primeiro passo é responder a pesquisa que está disponível no site, ou baixe o aplicativo Diversidade+ na Apple Store ou Google Play. Após responder a pesquisa, você estará cadastrado no projeto, e poderá se inscrever nas vagas disponíveis, ou será convidado a participar de processos seletivos nas empresas.</p>
+            </div>
+            <div class="container-faq">
+                <h5 class="modal-title title-faq">3 - Após responder a pesquisa, quanto tempo vai levar para alguma empresa me convidar para processo seletivo?</h5>
+              <p class="faq-text">O objetivo do projeto é de contratar 1.000 pessoas em até 2 anos, contados a partir de janeiro de 2020. Durante esse período as empresas podem entrar em contato a qualquer momento.</p>
+            </div>
+            <div class="container-faq">
+                <h5 class="modal-title title-faq">4 - Posso me inscrever em qualquer uma das vagas?</h5>
+              <p class="faq-text">Antes de se inscrever em qualquer vaga de empresa, seja você PCD ou não, é importante verificar quais são os pré-requisitos da vaga. Você pode se inscrever em todas as vagas que você se encaixar.</p>
+            </div>
+            <div class="container-faq">
+                <h5 class="modal-title title-faq">5 - Como fico sabendo quais são os salários e benefícios oferecidos pelas empresas</h5>
+              <p class="faq-text">Normalmente as empresas costumas divulgar essas informações no anúncio das vagas. Se não tiver, é porque a empresa deve dar essa informação ao longo do processo seletivo.</p>
+            </div>
+            <div class="container-faq">
+                <h5 class="modal-title title-faq">6 - As vagas de emprego são apenas para Uberlândia?</h5>
+              <p class="faq-text">Nessa primeira etapa do projeto sim, mas depois será estendido a mais cidades. Se alguma PCD de outra cidade responder a pesquisa, essas informações ficarão no Banco de Talentos. Não vamos nessa fase ligar para elas para fazer a pesquisa, mas empresas que tenham filiais nessas cidades, podem utilizar esse banco.</p>
+            </div>
+            <div class="container-faq">
+                <h5 class="modal-title title-faq">7 - O que é o BPC?</h5>
+              <p class="faq-text">BPC quer dizer Benefício de Prestação Continuada. É um benefício da assistência social, integrante do Sistema Único de Assistência Social – SUAS, pago pelo Governo Federal e assegurado por lei, que permite o acesso de idosos e pessoas com deficiência às condições mínimas de uma vida digna. Já são mais de 2 milhões de pessoas beneficiadas.</p>
+            </div>
+            <div class="container-faq">
+                <h5 class="modal-title title-faq">8 - Qual é o valor mensal desse benefício?</h5>
+              <p class="faq-text">O valor do BPC é de um salário mínimo, pago por mês às pessoas idosas e/ou com deficiência que não podem garantir a sua sobrevivência, por conta própria ou com o apoio da família.</p>
+            </div>
+            <div class="container-faq">
+                <h5 class="modal-title title-faq">9 - Quem pode receber o BPC?</h5>
+              <p class="faq-text">Podem receber o BPC pessoas idosas com 65 anos ou mais e pessoas com deficiência. O benefício é destinado a idosos que não têm direito à previdência social e a pessoas com deficiência que não podem trabalhar e levar uma vida independente. A renda familiar nos dois casos deve ser inferior a 1/4 do salário mínimo. Ou seja, 25% do salário mínimo por pessoa. Exemplo: Uma família composta por Pai, Mãe e dois filhos. Só um trabalha e ganha 1 salário mínimo. Observação: Todos devem morar na mesma casa.</p>
+            </div>
+            <div class="container-faq">
+                <h5 class="modal-title title-faq">10 - Como saber se tem ou não direito a receber o BPC?</h5>
+              <p class="faq-text">Nessa primeira etapa do projeto sim, mas depois será estendido a mais cidades. Se alguma PCD de outra cidade responder a pesquisa, essas informações ficarão no Banco de Talentos. Não vamos nessa fase ligar para elas para fazer a pesquisa, mas empresas que tenham filiais nessas cidades, podem utilizar esse banco.</p>
+            </div>
+            <div class="container-faq">
+                <h5 class="modal-title title-faq">11 - O que é Renda Familiar?</h5>
+              <p class="faq-text">Renda familiar por pessoa é a soma total da renda de toda a família, dividida pelo número de membros que fazem parte do núcleo familiar, vivendo na mesma casa.</p>
+            </div>
+            <div class="container-faq">
+                <h5 class="modal-title title-faq">12 - Quais as pessoas da família que você deve colocar nesta conta?</h5>
+                <p class="faq-text">Se estas pessoas vivem no mesmo teto que o seu, elas podem participar da conta:</p>
+                <ul>
+                  <li class="faq-text">Esposa/Esposo</li>
+                  <li class="faq-text">Companheiro/Companheira</li>
+                  <li class="faq-text">Filhos/Filhas, menores de 21 anos ou inválidos</li>
+                  <li class="faq-text">Irmãos/Irmãs, menores de 21 anos ou inválidos</li>
+                  <li class="faq-text">Pai/Mãe</li>
+                </ul>
+            </div>
+            <div class="container-faq">
+                <h5 class="modal-title title-faq">13 - Como fazer a conta?</h5>
+                <p class="faq-text">Some todos os ganhos destas pessoas e divida o resultado pelo número de pessoas que fazem parte da sua família. Por exemplo: com o salário mínimo no valor de R$ 998,00, 1/4 deste valor são R$ 249,50.</p>
+            </div>
+            <div class="container-faq">
+                <h5 class="modal-title title-faq">14 - Como requerer o BPC?</h5>
+                <p class="faq-text">Se você tem direito a receber o BPC, não é necessário nenhum intermediário. Basta dirigir-se à agência do INSS mais próxima da sua casa, levando consigo os documentos pessoais necessários. Veja a seguir quais são eles. Algumas prefeituras também podem orientar você. Confira se a prefeitura da sua cidade pode ajudá-lo. É fundamental que as informações que você fornecer estejam corretas e atualizadas.</p>
+            </div>
+            <div class="container-faq">
+                <h5 class="modal-title title-faq">14 - Como requerer o BPC?</h5>
+                <p class="faq-text">Se você tem direito a receber o BPC, não é necessário nenhum intermediário. Basta dirigir-se à agência do INSS mais próxima da sua casa, levando consigo os documentos pessoais necessários. Veja a seguir quais são eles. Algumas prefeituras também podem orientar você. Confira se a prefeitura da sua cidade pode ajudá-lo. É fundamental que as informações que você fornecer estejam corretas e atualizadas.</p>
+            </div>
+            <div class="container-faq">
+                <h5 class="modal-title title-faq">15 - Mais de uma pessoa da família pode receber o BPC?</h5>
+                <p class="faq-text">Para que mais de uma pessoa receba o BPC na sua família, a regra não muda: a renda familiar por pessoa tem que ser menor que 1/4 do salário mínimo. Por isso, fique atento ao modo de fazer esta conta nos dois casos.</p>
+            </div>
+            <div class="container-faq" style="padding-bottom: 25px;">
+                <h5 class="modal-title title-faq" >16 - A PCD (Pessoa Com Deficiência) que começa a trabalhar com carteira assinada perde o BPC ?</h5>
+                <p class="faq-text">Antes de 2011 sim. Atualmente se o contrato for de Aprendiz não. Aprendiz – A Lei permite que pessoas com deficiência contratadas na condição de aprendizes continuem recebendo o BPC junto com a remuneração salarial durante o período do contrato. “Conforme a lei trabalhista, o contrato de aprendiz é para quem tem entre 16 e 24 anos, está vinculado ao ensino e é remunerado por hora de trabalho. No caso da pessoa com deficiência, não há limitação de idade”</p>
+            </div>
+
         </div>
       </div>
     </div>
