@@ -12,7 +12,7 @@
               <div class="nav-labels  container-login"> <a class="login" href="https://app.diversidademais.com.br">LOGIN</a></div>
             </div>
             <div class="menu-name-label" style="margin-left: 20px;">
-              <div class="nav-labels  container-login"> <a class="login" href="" data-toggle="modal" data-target="#modalExemplo5" >PERGUNTAS E RESPOSTAS</a></div>
+              <div class="nav-labels  container-login"> <a class="login" href="" data-toggle="modal" data-target="#modalExemplo6" >PERGUNTAS E RESPOSTAS</a></div>
             </div>
           </div>
         </div>
@@ -55,7 +55,7 @@
           </div>
           <div *ngIf="favoriteSeason == 'PREENCHER O QUESTIONÁRIO PCD'"  class="modal-footer">
             <button type="button" style="padding: 10px 35px;" class="btn btn-secondary" data-dismiss="modal" data-toggle="modal" data-target="#modalExemplo2">NÃO</button>
-            <a type="button" style="padding: 10px 35px;" class="btn btn-primary" href="https://app.diversidademais.com.br">SIM</a>
+            <button type="button" style="padding: 10px 35px;" class="btn btn-primary"> <a style="color: white" href="https://app.diversidademais.com.br">SIM</a></button>
           </div>
         </div>
       </div>
@@ -113,6 +113,7 @@
                 <input matInput placeholder="CPF"  maxlength="15" mask="AAA.AAA.AAA-AA" formControlName="cpf" #phone="matInput" style="color: #333333; ">
               </mat-form-field>
               <label style="font-size: 11px; text-align: left; color: red; width: 100%; padding: 0px 0px 21px 0px;" *ngIf="cpfError">É necessário preencher o campo CPF</label>
+              <label style="font-size: 11px; text-align: left; color: red; width: 100%; padding: 0px 0px 21px 0px;" *ngIf="cpfInvalido">Digite um CPF válido</label>
             </div>
             <div class="modal-footer2">
               <button type="submit" style="padding: 10px 35px;" class="btn btn-primary">ENVIAR</button>
@@ -122,13 +123,13 @@
       </div>
     </div>
     <!-- Modal4 - FAQ de Nome e Email -->
-    <div class="modal fade" id="modalExemplo5" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog-5 modal-dialog-centered modal5"  role="document">
+    <div class="modal fade" id="modalExemplo6" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-5" role="document">
 
         <div class="modal-content">
           <div class="modal-header">
               <h5 class="modal-title title-faq" id="exampleModalLabel">Perguntas e Respostas</h5>
-              <button type="button" (click)="fecharmodal()" data-dismiss="modal" class="close" >
+              <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>

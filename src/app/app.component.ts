@@ -25,6 +25,7 @@ export class AppComponent {
   emailForm: FormGroup;
   
   public noAuth: true;
+  public cpfInvalido: Boolean;
   public cpfError: Boolean;
   public phoneError: Boolean;
   public nameError: Boolean;
@@ -69,32 +70,73 @@ export class AppComponent {
   callMe(row){
     let value = row.value
     console.log("value", value)
-    if (value.phone.length < 11 || value.cpf.length < 11) {
+    if (value.phone.length < 11 || value.cpf.length < 11 ) {
       
       value.phone.length < 11 ? this.phoneError = true : this.phoneError = false;
-      value.cpf < 11 ? this.cpfError = true : this.cpfError = false;
+      value.cpf.length < 11 ? this.cpfError = true : this.cpfError = false;
       
     }else{
-      
-
-      this.http.post(`${environment.api.url}/callme/new`, value)
-      .subscribe((result: any) => {
-        console.log(result)
-        this.phoneError = false;
-        this.nameError = false;
-        this.userName = value.name;
-        $('#modalExemplo3').modal('hide');
-        $('#modalExemplo4').modal('show');
-      }, (error) =>{
-        console.log(error)
-        if (value.name.length == 0) {
-          this.nameError = true;
+      if (this.testaCPF(value.cpf)) {
+        
+        this.cpfInvalido = false
+        this.http.post(`${environment.api.url}/callme/new`, value)
+        .subscribe((result: any) => {
+          console.log(result)
           this.phoneError = false;
-        }
-        // this.showNotification("bg-black", `Push editado com Erro!`, "bottom", "right", "animated fadeInRight", "animated fadeOutRight")
-      })
-      
+          this.nameError = false;
+          this.userName = value.name;
+          $('#modalExemplo3').modal('hide');
+          $('#modalExemplo4').modal('show');
+          this.preCadastro(value);
+        }, (error) =>{
+          console.log(error)
+          if (value.name.length == 0) {
+            this.nameError = true;
+            this.phoneError = false;
+          }
+          // this.showNotification("bg-black", `Push editado com Erro!`, "bottom", "right", "animated fadeInRight", "animated fadeOutRight")
+        })
+      }else{
+        this.cpfInvalido = true
+      }
     }
   }
+
+  
+
+  preCadastro(value){
+    console.log("VALUE BEFORA", value)
+    let form = {
+      telefone: value.phone,
+      nome: value.name,
+      cpf: value.cpf
+    }
+    this.http.post(`${environment.api.url}/pcd/new`, form)
+    .subscribe((result: any) => {
+      console.log("CADASTRO DE PCD ", result)
+    })
+  }
+
+  testaCPF(strCPF) {
+    var Soma;
+    var Resto;
+    Soma = 0;
+    if (strCPF == "00000000000") return false;
+      
+    for (let i=1; i<=9; i++) Soma = Soma + parseInt(strCPF.substring(i-1, i)) * (11 - i);
+      Resto = (Soma * 10) % 11;
+      
+        if ((Resto == 10) || (Resto == 11))  Resto = 0;
+        if (Resto != parseInt(strCPF.substring(9, 10)) ) return false;
+      
+      Soma = 0;
+        for (let i = 1; i <= 10; i++) Soma = Soma + parseInt(strCPF.substring(i-1, i)) * (12 - i);
+        Resto = (Soma * 10) % 11;
+      
+        if ((Resto == 10) || (Resto == 11))  Resto = 0;
+        if (Resto != parseInt(strCPF.substring(10, 11) ) ) return false;
+        return true;
+  }
+
 
 }
