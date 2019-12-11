@@ -102,6 +102,13 @@ export class AppComponent {
     }
   }
 
+  openPlatform(){
+    window.open("https://app.diversidademais.com.br/", '_blank');
+  }
+  openPlatformCadastro(){
+    window.open("https://app.diversidademais.com.br/#/authentication/questionario", '_blank');
+  }
+
   
 
   preCadastro(value){

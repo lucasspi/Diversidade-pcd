@@ -1,21 +1,14 @@
 
-.login:hover{
-    color: #adc90e;
-    
-}
-.login{
-    color: white;
-    transition: 0.2s;
-}
+
 .container-login{
     background: rgba(255,255,255,0.6);
-    color: white;
+    color: white !important;
     padding: 10px 50px;
     border-radius: 40px;
     transition: 0.3s;
 }
 .container-login:hover{
-    color: #adc90e;
+    color: #adc90e!important;
     background: rgba(255,255,255,0.9);
     padding: 10px 50px;
     border-radius: 40px;

@@ -9,10 +9,10 @@
           </div>
           <div style="display: flex;">
             <div class="menu-name-label">
-              <div class="nav-labels  container-login"> <a class="login" href="https://app.diversidademais.com.br">LOGIN</a></div>
+              <button (click)="openPlatform()" class="nav-labels container-login"> LOGIN</button>
             </div>
             <div class="menu-name-label" style="margin-left: 20px;">
-              <div class="nav-labels  container-login"> <a class="login" href="" data-toggle="modal" data-target="#modalExemplo6" >PERGUNTAS E RESPOSTAS</a></div>
+              <div class="nav-labels  container-login" data-toggle="modal" data-target="#modalExemplo6" >PERGUNTAS E RESPOSTAS</div>
             </div>
           </div>
         </div>
@@ -55,7 +55,7 @@
           </div>
           <div *ngIf="favoriteSeason == 'PREENCHER O QUESTIONÁRIO PCD'"  class="modal-footer">
             <button type="button" style="padding: 10px 35px;" class="btn btn-secondary" data-dismiss="modal" data-toggle="modal" data-target="#modalExemplo2">NÃO</button>
-            <button type="button" style="padding: 10px 35px;" class="btn btn-primary"> <a style="color: white" href="https://app.diversidademais.com.br/#/authentication/questionario">SIM</a></button>
+            <button type="button" style="padding: 10px 35px; color: white;" class="btn btn-primary" (click)="openPlatformCadastro()">SIM</button>
           </div>
         </div>
       </div>
