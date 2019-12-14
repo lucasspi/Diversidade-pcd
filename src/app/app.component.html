@@ -1,7 +1,11 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div class="bg-img">
+  <ngb-toast *ngIf="showToast" style="position: absolute; bottom: 10%; right: 1%;">
+    <div style="display: flex; align-items: flex-end; flex-direction: column; background-color: #f44335; ">
+      <div style="color: #FFFFFF; padding: 12px 40px; font-size: 14px;">{{messagesErro}}</div>
+    </div>
+  </ngb-toast>
     <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-
       <header class="masthead mb-auto">
         <div class="inner div-nav">
           <div class="pic-div">
@@ -16,6 +20,7 @@
             </div>
           </div>
         </div>
+
       </header>
       <main role="main" class="inner cover">
         <h1 class="cover-heading">ESCOLHA UMA DAS OPÇÕES ABAIXO</h1>
@@ -26,7 +31,7 @@
             </mat-radio-button>
           </mat-radio-group>
         </div>
-          
+        
       </main>
       <footer class="mastfoot mt-auto">
         <div class="inner">
@@ -79,7 +84,7 @@
         <div class="modal-content" style="height: 260px; padding: 20px;">
           
           <div class="modal-body modal-font" style="text-align: center;">
-            <span style="font-size: 30px; font-weight: bold;">{{userName}}</span><br/>Você receberá uma ligação em<br/>alguns minutos.
+            <span style="font-size: 30px; font-weight: bold;">{{userName}}</span><br/>Obrigado por se cadastrar. Você receberá uma<br/>ligação da nossa central em breve.
           </div>
           <div class="modal-footer2">
             <button type="button" style="padding: 10px 35px;" class="btn btn-primary" data-dismiss="modal">FECHAR</button>
@@ -103,17 +108,12 @@
               <mat-form-field class="example-full-width">
                 <input matInput placeholder="Favorite food" formControlName="name"  #name="matInput" placeholder="Nome">
               </mat-form-field>
-              <label style="font-size: 11px; text-align: left; color: red; width: 100%; padding: 0px 0px 21px 0px;" *ngIf="nameError">É necessário preencher o campo Nome</label>
-
               <mat-form-field class="example-full-width">
                 <input matInput placeholder="Telefone"  maxlength="15" mask="(AA) AAAAA-AAAA" formControlName="phone" #phone="matInput" style="color: #333333; ">
               </mat-form-field>
-              <label style="font-size: 11px; text-align: left; color: red; width: 100%; padding: 0px 0px 21px 0px;" *ngIf="phoneError">É necessário preencher o campo Telefone</label>
               <mat-form-field class="example-full-width">
-                <input matInput placeholder="CPF"  maxlength="15" mask="AAA.AAA.AAA-AA" formControlName="cpf" #phone="matInput" style="color: #333333; ">
+                <input (keyup)="verificaExistencia($event)" matInput placeholder="CPF"  maxlength="15" mask="AAA.AAA.AAA-AA" formControlName="cpf" #phone="matInput" style="color: #333333; ">
               </mat-form-field>
-              <label style="font-size: 11px; text-align: left; color: red; width: 100%; padding: 0px 0px 21px 0px;" *ngIf="cpfError">É necessário preencher o campo CPF</label>
-              <label style="font-size: 11px; text-align: left; color: red; width: 100%; padding: 0px 0px 21px 0px;" *ngIf="cpfInvalido">Digite um CPF válido</label>
             </div>
             <div class="modal-footer2">
               <button type="submit" style="padding: 10px 35px;" class="btn btn-primary">ENVIAR</button>
@@ -210,6 +210,8 @@
             </div>
 
         </div>
+        
       </div>
+      
     </div>
 <router-outlet></router-outlet>

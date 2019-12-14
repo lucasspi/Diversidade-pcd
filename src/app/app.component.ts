@@ -24,7 +24,9 @@ export class AppComponent {
   groupForm: FormGroup;
   emailForm: FormGroup;
   
+  public showToast = false;
   public noAuth: true;
+  public messagesErro: String;
   public cpfInvalido: Boolean;
   public cpfError: Boolean;
   public phoneError: Boolean;
@@ -70,36 +72,38 @@ export class AppComponent {
   callMe(row){
     let value = row.value
     console.log("value", value)
-    if (value.phone.length < 11 || value.cpf.length < 11 ) {
-      
-      value.phone.length < 11 ? this.phoneError = true : this.phoneError = false;
-      value.cpf.length < 11 ? this.cpfError = true : this.cpfError = false;
-      
-    }else{
-      if (this.testaCPF(value.cpf)) {
+    if (value.name && value.phone && value.phone.length >= 10 && value.cpf && this.testaCPF(value.cpf) && !this.showToast) {
         
-        this.cpfInvalido = false
         this.http.post(`${environment.api.url}/callme/new`, value)
         .subscribe((result: any) => {
           console.log(result)
-          this.phoneError = false;
-          this.nameError = false;
+          this.messagesErro = "";
+          this.showToast = false;
           this.userName = value.name;
           $('#modalExemplo3').modal('hide');
           $('#modalExemplo4').modal('show');
           this.preCadastro(value);
-        }, (error) =>{
-          console.log(error)
-          if (value.name.length == 0) {
-            this.nameError = true;
-            this.phoneError = false;
-          }
-          // this.showNotification("bg-black", `Push editado com Erro!`, "bottom", "right", "animated fadeInRight", "animated fadeOutRight")
+          this.emailForm.reset()
         })
-      }else{
-        this.cpfInvalido = true
+      }else if(!value.name){
+        this.messagesErro = "Nome é um campo obrigatório";
+        this.showToast = true;
+      }else if (!value.phone) {
+        this.messagesErro = "Telefone é um campo obrigatório";
+        this.showToast = true;
+      }else if (value.phone.length < 10) {
+        this.messagesErro = "Digite um número de telefone válido";
+        this.showToast = true;
+      }else if(!value.cpf){
+        this.messagesErro = "Campo CPF é obrigatório.";
+        this.showToast = true;
+      }else if (!this.testaCPF(value.cpf)) {
+        this.messagesErro = "Digite um CPF válido.";
+        this.showToast = true;
+      }else if (this.showToast) {
+        this.messagesErro = "Este CPF já está em uso.";
+        this.showToast = true;
       }
-    }
   }
 
   openPlatform(){
@@ -109,8 +113,21 @@ export class AppComponent {
     window.open("https://app.diversidademais.com.br/#/authentication/questionario", '_blank');
   }
 
-  
-
+  verificaExistencia(event){
+    console.log("cpf",event.target.value);
+    let cpf = event.target.value;
+    cpf = cpf.replace(/\D/g, '')
+    this.showToast = false;
+    this.messagesErro = '';
+    if (cpf.length == 11) {
+        this.http.get(`${environment.api.url}/pcd/verificaCpf/` + cpf)
+        .subscribe((result: any) => {
+            console.log("this.showToast", result)
+            this.messagesErro = "Este CPF já está em uso."
+            this.showToast = result.error
+        });
+    }
+}
   preCadastro(value){
     console.log("VALUE BEFORA", value)
     let form = {

@@ -10,6 +10,7 @@ import {MatRadioModule} from '@angular/material/radio';
 import { CommonModule } from '@angular/common';  
 import {MatInputModule} from '@angular/material/input';
 import {NgxMaskModule, IConfig} from 'ngx-mask';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 export const options: Partial<IConfig> | (() => Partial<IConfig>) = {}
 
@@ -18,6 +19,7 @@ export const options: Partial<IConfig> | (() => Partial<IConfig>) = {}
     AppComponent
   ],
   imports: [
+    NgbModule,
     NgxMaskModule.forRoot(options),
     BrowserModule,
     AppRoutingModule,
