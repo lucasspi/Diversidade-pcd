@@ -88,21 +88,27 @@ export class AppComponent {
       }else if(!value.name){
         this.messagesErro = "Nome é um campo obrigatório";
         this.showToast = true;
+        setTimeout(()=> this.showToast = false, 4000);
       }else if (!value.phone) {
         this.messagesErro = "Telefone é um campo obrigatório";
         this.showToast = true;
+        setTimeout(()=> this.showToast = false, 4000);
       }else if (value.phone.length < 10) {
         this.messagesErro = "Digite um número de telefone válido";
         this.showToast = true;
+        setTimeout(()=> this.showToast = false, 4000);
       }else if(!value.cpf){
         this.messagesErro = "Campo CPF é obrigatório.";
         this.showToast = true;
+        setTimeout(()=> this.showToast = false, 4000);
       }else if (!this.testaCPF(value.cpf)) {
         this.messagesErro = "Digite um CPF válido.";
         this.showToast = true;
+        setTimeout(()=> this.showToast = false, 4000);
       }else if (this.showToast) {
         this.messagesErro = "Este CPF já está em uso.";
         this.showToast = true;
+        setTimeout(()=> this.showToast = false, 4000);
       }
   }
 
@@ -114,7 +120,6 @@ export class AppComponent {
   }
 
   verificaExistencia(event){
-    console.log("cpf",event.target.value);
     let cpf = event.target.value;
     cpf = cpf.replace(/\D/g, '')
     this.showToast = false;
@@ -122,14 +127,13 @@ export class AppComponent {
     if (cpf.length == 11) {
         this.http.get(`${environment.api.url}/pcd/verificaCpf/` + cpf)
         .subscribe((result: any) => {
-            console.log("this.showToast", result)
             this.messagesErro = "Este CPF já está em uso."
             this.showToast = result.error
+            setTimeout(()=> this.showToast = false, 4000);
         });
     }
 }
   preCadastro(value){
-    console.log("VALUE BEFORA", value)
     let form = {
       telefone: value.phone,
       nome: value.name,
