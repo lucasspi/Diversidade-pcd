@@ -138,7 +138,7 @@ export class AppComponent {
       telefone: value.phone,
       nome: value.name,
       cpf: value.cpf,
-      origem: 'WEB'
+      origem: 'CALL CENTER'
     }
     this.http.post(`${environment.api.url}/pcd/new`, form)
     .subscribe((result: any) => {
