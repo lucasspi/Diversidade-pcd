@@ -88,27 +88,27 @@ export class AppComponent {
       }else if(!value.name){
         this.messagesErro = "Nome é um campo obrigatório";
         this.showToast = true;
-        setTimeout(()=> this.showToast = false, 4000);
+        setTimeout(()=> this.showToast = false, 7000);
       }else if (!value.phone) {
         this.messagesErro = "Telefone é um campo obrigatório";
         this.showToast = true;
-        setTimeout(()=> this.showToast = false, 4000);
+        setTimeout(()=> this.showToast = false, 7000);
       }else if (value.phone.length < 10) {
         this.messagesErro = "Digite um número de telefone válido";
         this.showToast = true;
-        setTimeout(()=> this.showToast = false, 4000);
+        setTimeout(()=> this.showToast = false, 7000);
       }else if(!value.cpf){
         this.messagesErro = "Campo CPF é obrigatório.";
         this.showToast = true;
-        setTimeout(()=> this.showToast = false, 4000);
+        setTimeout(()=> this.showToast = false, 7000);
       }else if (!this.testaCPF(value.cpf)) {
         this.messagesErro = "Digite um CPF válido.";
         this.showToast = true;
-        setTimeout(()=> this.showToast = false, 4000);
+        setTimeout(()=> this.showToast = false, 7000);
       }else if (this.showToast) {
         this.messagesErro = "Este CPF já está em uso.";
         this.showToast = true;
-        setTimeout(()=> this.showToast = false, 4000);
+        setTimeout(()=> this.showToast = false, 7000);
       }
   }
 
@@ -129,7 +129,7 @@ export class AppComponent {
         .subscribe((result: any) => {
             this.messagesErro = "Este CPF já está em uso."
             this.showToast = result.error
-            setTimeout(()=> this.showToast = false, 4000);
+            setTimeout(()=> this.showToast = false, 6000);
         });
     }
 }
